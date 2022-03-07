@@ -7,6 +7,7 @@ import { Row, Col } from 'reactstrap';
 import HouseList from 'components/House/HouseList';
 import Link from 'next/link';
 import HouseThumbnail from 'components/House/HouseThumbnail';
+import BlogThumbnail from 'components/Blog/BlogThumbnail';
 
 export async function getServerSideProps() {
   const { data } = await client.query({
@@ -19,7 +20,6 @@ export async function getServerSideProps() {
             family
             email
             avatar
-            
           }
           id
           title
@@ -33,6 +33,11 @@ export async function getServerSideProps() {
           about
           images
         }
+        blogs{
+          id
+          title
+          image
+        }
       }
     `,
   });
@@ -40,14 +45,15 @@ export async function getServerSideProps() {
   return {
     props: {
       houses: data.houses,
+      blogs: data.blogs,
     },
  };
 }
 
-export default function Home(houses) {
+export default function Home({houses, blogs}) {
 
   // const houseComp = houses?.houses ? houses?.houses.map((house) => <Col md="3"><HouseThumbnail house={house} /></Col>) : [];
-
+  console.log("Blogs", blogs);
   return (
     <>
       <Head>
@@ -59,28 +65,28 @@ export default function Home(houses) {
         <div style={{textAlign: "center", padding: "20px"}}>
           <Row>
             <Col md="7"  style={{margin: "2px 0", padding: "2px"}}>
-               <HouseThumbnail imageAsBackground={true} house={houses?.houses[0]} height="340px" />
+               <BlogThumbnail imageAsBackground={true} blog={blogs[0]} height="340px" />
             </Col>
             <Col md="5" style={{padding: "2px"}} >
               <Row>
                 <Col md="12"  style={{margin: "2px 0"}}>
-                  <HouseThumbnail imageAsBackground={true} house={houses?.houses[1]} height="170px" />
+                  <BlogThumbnail imageAsBackground={true} blog={blogs[1]} height="170px" />
                 </Col>
                 <Col md="12"  style={{margin: "2px 0"}}>
-                  <HouseThumbnail imageAsBackground={true} house={houses?.houses[2]} height="170px" />
+                  <BlogThumbnail imageAsBackground={true} blog={blogs[2]} height="170px" />
                 </Col>
               </Row>
             </Col>
           </Row>
           <Row>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-              <HouseThumbnail imageAsBackground={true} house={houses?.houses[3]} height="170px" />
+              <BlogThumbnail imageAsBackground={true} blog={blogs[3]} height="170px" />
             </Col>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-              <HouseThumbnail imageAsBackground={true} house={houses?.houses[4]} height="170px" />
+              <BlogThumbnail imageAsBackground={true} blog={blogs[4]} height="170px" />
             </Col>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-              <HouseThumbnail imageAsBackground={true} house={houses?.houses[5]} height="170px" />
+              <BlogThumbnail imageAsBackground={true} blog={blogs[5]} height="170px" />
             </Col>
           </Row>
         </div>
@@ -89,7 +95,7 @@ export default function Home(houses) {
           <h3 style={{width: "100%"}}>
             <HrText text="Top List" />
           </h3>
-          <HouseList houseList={houses?.houses} />
+          <HouseList houseList={houses} />
         </Row>
       </main>
     </>

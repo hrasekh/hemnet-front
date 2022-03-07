@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import client from "apollo-client";
 import Slider from 'components/Layout/Slider';
 import { Container, Col, Row, Button } from 'reactstrap';
+import UserContact from 'components/User/UserContact';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -103,15 +104,7 @@ export default function Bastad({house}) {
               </Row>
             </Col>
             <Col md="4">
-              <img src={`${process.env.api_domain}${house.user.avatar}`}
-                style={{float: "right", borderRadius: "50%"}}
-                width={70} />
-              <h3 style={{fontSize: "1.3em"}}>{house?.user?.name} {house?.user?.family}</h3>
-              <h4 style={{color: "gray", fontSize: ".8em"}}>{house?.user?.email}</h4>
-              <div style={{padding: "20px 0"}}>
-                <Button outline style={{width: "100%", margin: "5px 0"}}>Show Phone Number</Button>
-                <Button outline style={{width: "100%", margin: "5px 0"}}>By Email</Button>
-              </div>
+              <UserContact user={house.user} />
             </Col>
           </Row>
 
