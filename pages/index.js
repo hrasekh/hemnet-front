@@ -5,6 +5,8 @@ import client from "apollo-client";
 import HrText from 'components/Layout/HrText';
 import { Row, Col } from 'reactstrap';
 import HouseList from 'components/House/HouseList';
+import Link from 'next/link';
+import HouseThumbnail from 'components/House/HouseThumbnail';
 
 export async function getServerSideProps() {
   const { data } = await client.query({
@@ -57,40 +59,28 @@ export default function Home(houses) {
         <div style={{textAlign: "center", padding: "20px"}}>
           <Row>
             <Col md="7"  style={{margin: "2px 0", padding: "2px"}}>
-               <a href=''>
-                <img height={"404px"} style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[0]?.images[0]}`} />
-              </a>
+               <HouseThumbnail imageAsBackground={true} house={houses?.houses[0]} height="340px" />
             </Col>
             <Col md="5" style={{padding: "2px"}} >
               <Row>
                 <Col md="12"  style={{margin: "2px 0"}}>
-                   <a href=''>
-                    <img height={"200px"} style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[1]?.images[0]}`} />
-                  </a>
+                  <HouseThumbnail imageAsBackground={true} house={houses?.houses[1]} height="170px" />
                 </Col>
                 <Col md="12"  style={{margin: "2px 0"}}>
-                   <a href=''>
-                    <img height={"200px"} style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[2]?.images[0]}`} />
-                  </a>
+                  <HouseThumbnail imageAsBackground={true} house={houses?.houses[2]} height="170px" />
                 </Col>
               </Row>
             </Col>
           </Row>
           <Row>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-               <a href=''>
-                <img style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[3]?.images[0]}`} />
-              </a>
+              <HouseThumbnail imageAsBackground={true} house={houses?.houses[3]} height="170px" />
             </Col>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-               <a href=''>
-                <img style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[4]?.images[0]}`} />
-              </a>
+              <HouseThumbnail imageAsBackground={true} house={houses?.houses[4]} height="170px" />
             </Col>
             <Col md="4"  style={{margin: "2px 0", padding: "2px"}}>
-               <a href=''>
-                <img style={{width: "100%"}} src={`${process.env.api_domain}${houses?.houses[5]?.images[0]}`} />
-              </a>
+              <HouseThumbnail imageAsBackground={true} house={houses?.houses[5]} height="170px" />
             </Col>
           </Row>
         </div>
@@ -99,7 +89,6 @@ export default function Home(houses) {
           <h3 style={{width: "100%"}}>
             <HrText text="Top List" />
           </h3>
-          {/* <Slider slides={houses?.houses} /> */}
           <HouseList houseList={houses?.houses} />
         </Row>
       </main>
