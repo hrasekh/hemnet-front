@@ -46,10 +46,12 @@ export async function getServerSideProps(context) {
 export default function Bastad({house}) {
   
     const hList = house?.images ? 
-      house.images.map(image => 
+      house.images.map((image, index) => 
           <Image
+            key={`image-${index}`}
             style={{width: "100%"}} 
             src={`${process.env.api_domain}${image}`} 
+            alt={"image of house - hemnet"}
           />
           ) 
       : [];

@@ -3,8 +3,8 @@ import HouseThumbnail from '../HouseThumbnail';
 
 export default function HouseList({houseList}) {
     const hList = houseList ? 
-        houseList.map(house => 
-            <HouseThumbnail house={house} />
+        houseList.map((house, index) => 
+            <HouseThumbnail house={house} key={`house-${index}`} />
         )
         : [];
     return(
