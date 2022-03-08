@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import client from "apollo-client";
 import { Col, Row } from 'reactstrap';
 import UserContact from 'components/User/UserContact';
+import Image from 'next/image';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -48,7 +49,10 @@ export default function Bastad({blog}) {
         <main>
           <Row>
             <Col md="8">
-              <img src={`${process.env.api_domain}${blog.image}`} />
+              <Image
+                  src={`${process.env.api_domain}${blog.image}`}
+                  alt={blog.title}
+              />
               <div style={{marginTop: "10px"}}>
                 <h1>{blog.title}</h1>
               </div>
@@ -57,9 +61,9 @@ export default function Bastad({blog}) {
                 {blog.body}
               </p>
             </Col>
-            <Col md="4">
+            {/* <Col md="4">
               <UserContact user={blog.user} />
-            </Col>
+            </Col> */}
           </Row>
 
         </main>

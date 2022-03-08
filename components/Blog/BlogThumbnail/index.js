@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 const BlogThumbnail = ({blog, imageAsBackground, height}) => {
     const imgUrl = `${process.env.api_domain}${blog?.image}`;
@@ -8,7 +9,10 @@ const BlogThumbnail = ({blog, imageAsBackground, height}) => {
                 <div style={{position:"relative"}}>
                 {!imageAsBackground && 
                     <>
-                        <img src={imgUrl} />
+                        <Image
+                            src={imgUrl}
+                            alt={`${blog?.title}`}
+                        />
                     </>
                 }
                 {imageAsBackground && 

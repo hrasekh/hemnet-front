@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 const HouseThumbnail = ({house, imageAsBackground, height}) => {
     const imgUrl = `${process.env.api_domain}${house.images[0]}`;
@@ -7,7 +8,10 @@ const HouseThumbnail = ({house, imageAsBackground, height}) => {
             <a>
                 {!imageAsBackground && 
                     <>
-                        <img src={imgUrl} />
+                        <Image
+                            src={imgUrl}
+                            alt={`${house?.title}`}
+                        />
                     </>
                 }
                 {imageAsBackground && 

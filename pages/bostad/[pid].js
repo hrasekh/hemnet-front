@@ -4,6 +4,7 @@ import client from "apollo-client";
 import Slider from 'components/Layout/Slider';
 import { Container, Col, Row, Button } from 'reactstrap';
 import UserContact from 'components/User/UserContact';
+import Image from 'next/image';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -46,7 +47,11 @@ export default function Bastad({house}) {
   
     const hList = house?.images ? 
       house.images.map(image => 
-          <img style={{width: "100%"}} src={`${process.env.api_domain}${image}`} />) 
+          <Image
+            style={{width: "100%"}} 
+            src={`${process.env.api_domain}${image}`} 
+          />
+          ) 
       : [];
 
     return (
