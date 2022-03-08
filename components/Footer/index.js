@@ -23,7 +23,7 @@ const Footer = () => {
                     </Col>
                     <Col md="3">
                         <h4 style={{borderBottom: "1px dashed gray", padding: "0 0 20px 0"}}>Follow Hemnet</h4>
-                        <div><a href="">Hemnet&aposs newsletter</a></div>
+                        <div><a href="">Hemnet&apos;s newsletter</a></div>
                         <div><a href="">Facebook</a></div>
                         <div><a href="">Instagram</a></div>
                         <div><a href="">Twitter</a></div>

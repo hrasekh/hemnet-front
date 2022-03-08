@@ -7,7 +7,6 @@ const myLoader = ({ src, width, quality }) => {
 const ImageWrapper = (props) => {
     let imgProps = {
         src: props.src,
-        alt: props.alt,
         width: props.width,
         height: props.height,
         layout: props.layout,
@@ -20,7 +19,7 @@ const ImageWrapper = (props) => {
 
     return (
         <>
-            <Image {...imgProps} />
+            <Image alt={props.alt} {...imgProps} />
         </>
     )
 }

@@ -46,8 +46,8 @@ export default function Bastad({blog}) {
         </Head>
 
         <main>
-          <Row>
-            <Col md="8">
+          <Row className='justify-content-md-center' >
+            <Col md="8" >
               <ImageWrapper
                   src={blog.image}
                   alt={blog.title}
@@ -63,9 +63,6 @@ export default function Bastad({blog}) {
                 {blog.body}
               </p>
             </Col>
-            {/* <Col md="4">
-              <UserContact user={blog.user} />
-            </Col> */}
           </Row>
 
         </main>
