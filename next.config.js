@@ -4,6 +4,6 @@ module.exports = {
     outputStandalone: true,
   },
   images: {
-    domains: ['127.0.0.1', 'http://api-hemnet.midnart.ir'],
+    domains: ['127.0.0.1', 'https://api-hemnet.midnart.ir'],
   },
 }
