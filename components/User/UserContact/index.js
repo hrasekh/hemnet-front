@@ -8,7 +8,6 @@ export default function UserContact ({user}){
             <ImageWrapper
                 src={`${user?.avatar}`}
                 alt={`${user?.name} ${user?.family}`}
-                style={{borderRadius: "50%", width: "70px"}} 
                 width={70}
                 height={70}
             />

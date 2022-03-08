@@ -2,9 +2,11 @@ import Head from 'next/head'
 import { gql } from "@apollo/client";
 import client from "apollo-client";
 import Slider from 'components/Layout/Slider';
-import { Container, Col, Row, Button } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import UserContact from 'components/User/UserContact';
 import ImageWrapper from 'components/Image/ImageWrapper';
+import GoogleMap from 'components/GoogleMap';
+import HrText from 'components/Layout/HrText';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -114,6 +116,16 @@ export default function Bastad({house}) {
             </Col>
             <Col md="4">
               <UserContact user={house.user} />
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12" style={{margin: "50px 0"}}>
+              <h3 style={{width: "100%"}}>
+                <HrText text="Map & travel timest" />
+              </h3>
+              <div style={{margin: "40px 0"}} >
+                <GoogleMap />
+              </div>
             </Col>
           </Row>
 

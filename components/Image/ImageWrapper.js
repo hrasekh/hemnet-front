@@ -9,9 +9,7 @@ const ImageWrapper = (props) => {
         src: props.src,
         width: props.width,
         height: props.height,
-        layout: props.layout,
-        style: props.style,
-    }
+        layout: props.layout    }
 
     if (!props.local){
         imgProps.loader = myLoader;
