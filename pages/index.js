@@ -3,10 +3,8 @@ import { gql } from "@apollo/client";
 import client from "apollo-client";
 
 import HrText from 'components/Layout/HrText';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import HouseList from 'components/House/HouseList';
-import Link from 'next/link';
-import HouseThumbnail from 'components/House/HouseThumbnail';
 import BlogThumbnail from 'components/Blog/BlogThumbnail';
 
 export async function getServerSideProps() {
@@ -95,7 +93,13 @@ export default function Home({houses, blogs}) {
             <HrText text="Top List" />
           </h3>
           <HouseList houseList={houses} />
+
+          <Button color="success" outline style={{width: "200px", margin: "15px auto"}} >
+            View all leaderboards
+          </Button>
+
         </Row>
+        
       </main>
     </>
   )
