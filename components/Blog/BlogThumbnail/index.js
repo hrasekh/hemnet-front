@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from 'next/image';
+import ImageWrapper from 'components/Image/ImageWrapper';
 
 const BlogThumbnail = ({blog, imageAsBackground, height}) => {
     const imgUrl = `${process.env.NEXT_PUBLIC_API_DOMAIN}${blog?.image}`;
@@ -9,7 +9,7 @@ const BlogThumbnail = ({blog, imageAsBackground, height}) => {
                 <div style={{position:"relative"}}>
                 {!imageAsBackground && 
                     <>
-                        <Image
+                        <ImageWrapper
                             src={imgUrl}
                             alt={`${blog?.title}`}
                             layout="fill"

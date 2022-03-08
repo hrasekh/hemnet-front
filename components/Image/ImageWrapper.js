@@ -1,19 +1,27 @@
 import Image from 'next/image'
 
 const myLoader = ({ src, width, quality }) => {
-    return `http://127.0.0.1:3167/${src}?w=${width}&q=${quality || 75}`
+    return `${process.env.NEXT_PUBLIC_API_DOMAIN}${src}?w=${width}&q=${quality || 75}`;
   }
   
 const ImageWrapper = (props) => {
+    let imgProps = {
+        src: props.src,
+        alt: props.alt,
+        width: props.width,
+        height: props.height,
+        layout: props.layout,
+        style: props.style,
+    }
+
+    if (!props.local){
+        imgProps.loader = myLoader;
+    }
+
     return (
-        <Image
-            loader={myLoader}
-            src="/hemnet-logo.svg"
-            alt="Hemnet"
-            width={120}
-            height={28}
-            
-        />
+        <>
+            <Image {...imgProps} />
+        </>
     )
 }
 

@@ -1,16 +1,16 @@
 import Link from "next/link";
-import Image from 'next/image';
+import ImageWrapper from 'components/Image/ImageWrapper';
 
 const HouseThumbnail = ({house, imageAsBackground, height}) => {
-    const imgUrl = `${process.env.NEXT_PUBLIC_API_DOMAIN}${house.images[0]}`;
+    const imgUrl = house.images[0];
     return (    
         <Link href={`/bostad/${house.id}`} >
             <a>
                 {!imageAsBackground && 
                     <>
-                        <Image
+                        <ImageWrapper
                             src={imgUrl}
-                            alt={`${house?.title}`}
+                            alt={house?.title}
                             layout="responsive"
                             height="70"
                             width="100"

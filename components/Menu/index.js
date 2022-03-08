@@ -23,7 +23,11 @@ function Menu() {
         <Navbar light expand="md" style={{backgroundColor: "#e4e8da !important"}}>
             <NavbarToggler onClick={() => { setIsOpen(!isOpen) }} />
             <NavbarBrand href="/" style={{paddingLeft: "12px"}}>
-                <ImageWrapper />
+                <ImageWrapper src="/hemnet-logo.svg"
+                                alt="Hemnet"
+                                local={true}
+                                width={120}
+                                height={28} />
             </NavbarBrand>
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>

@@ -1,12 +1,12 @@
 import { Button } from 'reactstrap';
-import Image from 'next/image';
+import ImageWrapper from 'components/Image/ImageWrapper';
 
 export default function UserContact ({user}){
     return(
         <>
         <div style={{float: "right"}}>
-            <Image
-                src={`${process.env.NEXT_PUBLIC_API_DOMAIN}${user?.avatar}`}
+            <ImageWrapper
+                src={`${user?.avatar}`}
                 alt={`${user?.name} ${user?.family}`}
                 style={{borderRadius: "50%", width: "70px"}} 
                 width={70}

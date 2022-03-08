@@ -4,7 +4,7 @@ import client from "apollo-client";
 import Slider from 'components/Layout/Slider';
 import { Container, Col, Row, Button } from 'reactstrap';
 import UserContact from 'components/User/UserContact';
-import Image from 'next/image';
+import ImageWrapper from 'components/Image/ImageWrapper';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -47,13 +47,13 @@ export default function Bastad({house}) {
   
     const hList = house?.images ? 
       house.images.map((image, index) => 
-          <Image
+          <ImageWrapper
             key={`image-${index}`}
-            src={`${process.env.NEXT_PUBLIC_API_DOMAIN}${image}`} 
+            src={image} 
             alt={"image of house - hemnet"}
             layout="responsive"
-            width={1000}
-            height={700}
+            width="1000"
+            height="700"
           />
           ) 
       : [];

@@ -2,8 +2,7 @@ import Head from 'next/head'
 import { gql } from "@apollo/client";
 import client from "apollo-client";
 import { Col, Row } from 'reactstrap';
-import UserContact from 'components/User/UserContact';
-import Image from 'next/image';
+import ImageWrapper from 'components/Image/ImageWrapper';
 
 export async function getServerSideProps(context) {
     const { pid } = context.params;
@@ -49,8 +48,8 @@ export default function Bastad({blog}) {
         <main>
           <Row>
             <Col md="8">
-              <Image
-                  src={`${process.env.NEXT_PUBLIC_API_DOMAIN}${blog.image}`}
+              <ImageWrapper
+                  src={blog.image}
                   alt={blog.title}
                   layout="responsive"
                   width={1000}
