@@ -50,8 +50,11 @@ export default function Bastad({blog}) {
           <Row>
             <Col md="8">
               <Image
-                  src={`${process.env.api_domain}${blog.image}`}
+                  src={`${process.env.NEXT_PUBLIC_API_DOMAIN}${blog.image}`}
                   alt={blog.title}
+                  layout="responsive"
+                  width={1000}
+                  height={700}
               />
               <div style={{marginTop: "10px"}}>
                 <h1>{blog.title}</h1>

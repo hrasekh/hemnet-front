@@ -53,7 +53,6 @@ export async function getServerSideProps() {
 export default function Home({houses, blogs}) {
 
   // const houseComp = houses?.houses ? houses?.houses.map((house) => <Col md="3"><HouseThumbnail house={house} /></Col>) : [];
-  console.log("Blogs", blogs);
   return (
     <>
       <Head>

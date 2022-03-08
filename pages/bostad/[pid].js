@@ -49,9 +49,11 @@ export default function Bastad({house}) {
       house.images.map((image, index) => 
           <Image
             key={`image-${index}`}
-            style={{width: "100%"}} 
-            src={`${process.env.api_domain}${image}`} 
+            src={`${process.env.NEXT_PUBLIC_API_DOMAIN}${image}`} 
             alt={"image of house - hemnet"}
+            layout="responsive"
+            width={1000}
+            height={700}
           />
           ) 
       : [];

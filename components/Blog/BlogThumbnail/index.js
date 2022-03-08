@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from 'next/image';
 
 const BlogThumbnail = ({blog, imageAsBackground, height}) => {
-    const imgUrl = `${process.env.api_domain}${blog?.image}`;
+    const imgUrl = `${process.env.NEXT_PUBLIC_API_DOMAIN}${blog?.image}`;
     return (    
         <Link href={`/blog/${blog?.id}`} >
             <a>
@@ -12,6 +12,7 @@ const BlogThumbnail = ({blog, imageAsBackground, height}) => {
                         <Image
                             src={imgUrl}
                             alt={`${blog?.title}`}
+                            layout="fill"
                         />
                     </>
                 }

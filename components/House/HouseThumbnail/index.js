@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from 'next/image';
 
 const HouseThumbnail = ({house, imageAsBackground, height}) => {
-    const imgUrl = `${process.env.api_domain}${house.images[0]}`;
+    const imgUrl = `${process.env.NEXT_PUBLIC_API_DOMAIN}${house.images[0]}`;
     return (    
         <Link href={`/bostad/${house.id}`} >
             <a>
@@ -11,6 +11,9 @@ const HouseThumbnail = ({house, imageAsBackground, height}) => {
                         <Image
                             src={imgUrl}
                             alt={`${house?.title}`}
+                            layout="responsive"
+                            height="70"
+                            width="100"
                         />
                     </>
                 }

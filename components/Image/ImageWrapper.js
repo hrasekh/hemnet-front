@@ -12,6 +12,7 @@ const ImageWrapper = (props) => {
             alt="Hemnet"
             width={120}
             height={28}
+            
         />
     )
 }
